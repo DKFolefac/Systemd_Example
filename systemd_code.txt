@@ -1,0 +1,16 @@
+[Unit]
+Description= A service to start a nodejs app in the background
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/Kelly
+ExecStart=/bin/npm run start:dev
+Restart=on-failure
+RestartSec=3
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=kelly
+
+[Install]
+WantedBy=Multi-user.target  
